@@ -10,6 +10,14 @@ fn iterator() {
     println!("{:?}",new_vector); 
 }
 
+fn print_list() {
+    let file = std::fs::read_to_string("lines").unwrap();
+    file.lines().enumerate().filter(|(i, _)| i % 2 == 0).skip(2).take(2).for_each(|(_, line)| println!("{}", line))
+ }
+
+
+
 fn main() {
-    iterator()
+    iterator();
+    print_list();
 }
